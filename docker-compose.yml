@@ -25,7 +25,7 @@ services:
       - ./src:/app/src
     command: bash -c "cd src/ && celery -A hrm.settings.celery worker -l info"
     env_file:
-      - .env
+      - .env.example
 
   flower:
     image: mher/flower
@@ -62,4 +62,4 @@ services:
     ports:
       - 8010:8000
     env_file:
-      - .env
+      - .env.example
