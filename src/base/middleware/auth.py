@@ -7,7 +7,7 @@ from django.contrib.auth.models import Group
 import jwt
 from dateutil import parser
 
-from ecom.settings import SECRET_KEY
+from ecom_project.settings import SECRET_KEY
 from user.models import User
 
 

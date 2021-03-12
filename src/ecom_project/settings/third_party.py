@@ -1,11 +1,11 @@
-from ecom.settings import DEBUG, REDIS_HOST, RABBITMQ_URL
+from ecom_project.settings import DEBUG, REDIS_HOST, RABBITMQ_URL
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.DjangoModelPermissions',
     ),
     'DEFAULT_RENDERER_CLASSES': (
-        'ecom.apis.renderers.DefaultRenderer',
+        'ecom_project.apis.renderers.DefaultRenderer',
     ),
     'DEFAULT_PAGINATION_CLASS': 'base.helpers.CustomPagination',
     'PAGE_SIZE': 12,
@@ -53,11 +53,11 @@ CACHES = {
             "MASTER_CACHE": f"redis://{REDIS_HOST}:6379",
             "DB": 4,
         },
-        "KEY_PREFIX": "ecom",
+        "KEY_PREFIX": "ecom_project",
     }
 }
 
-# 10 minutes cache
+# 5 minutes cache
 CACHE_MIDDLEWARE_SECONDS = 300
 
 # celery
@@ -68,5 +68,5 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
 CELERY_TASK_RESULT_EXPIRES = 3600
-CELERY_TASK_DEFAULT_QUEUE = 'ecom.celery'
+CELERY_TASK_DEFAULT_QUEUE = 'ecom_project.celery'
 

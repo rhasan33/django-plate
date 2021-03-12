@@ -1,4 +1,4 @@
-from ecom.settings import DB_NAME, DB_USER, DB_PASS, DB_HOST, DB_PORT
+from ecom_project.settings import DB_NAME, DB_USER, DB_PASS, DB_HOST, DB_PORT
 
 DATABASES = {
     'default': {

@@ -4,9 +4,9 @@ services:
   db:
     image: postgres:11.4-alpine
     environment:
-      - POSTGRES_USER=ecom
+      - POSTGRES_USER=ecom_project
       - POSTGRES_PASSWORD=12345
-      - POSTGRES_DB=ecom
+      - POSTGRES_DB=ecom_project
     ports:
       - 5434:5432
 
@@ -23,7 +23,7 @@ services:
       - rabbitmq
     volumes:
       - ./src:/app/src
-    command: bash -c "cd src/ && celery -A ecom.settings.celery worker -l info"
+    command: bash -c "cd src/ && celery -A ecom_project.settings.celery worker -l info"
     env_file:
       - .env
 

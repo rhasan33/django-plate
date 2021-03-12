@@ -1,4 +1,4 @@
-from ecom.settings import DEBUG
+from ecom_project.settings import DEBUG
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -65,6 +65,6 @@ LOCAL_MIDDLEWARE = [
 
 MIDDLEWARE = ON_TOP_MIDDLEWARE + DEFAULT_MIDDLEWARE + THIRD_PARTY_MIDDLEWARE + LOCAL_MIDDLEWARE
 
-ROOT_URLCONF = 'ecom.urls'
+ROOT_URLCONF = 'ecom_project.urls'
 
-WSGI_APPLICATION = 'ecom.wsgi.application'
+WSGI_APPLICATION = 'ecom_project.wsgi.application'
