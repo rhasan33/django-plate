@@ -7,7 +7,7 @@ from django.contrib.auth.models import Group
 import jwt
 from dateutil import parser
 
-from hrm.settings import SECRET_KEY
+from ecom.settings import SECRET_KEY
 from user.models import User
 
 
@@ -30,7 +30,6 @@ class AuthMiddleware:
                 user.is_staff = data.get('is_staff')
                 user.is_active = data.get('is_active')
                 user.email = data.get('email')
-                user.is_new = True
                 user.date_joined = parser.isoparse(data.get('date_joined'))
                 if data.get('groups'):
                     for group in data.get('groups'):

@@ -1,1 +1,1 @@
-# Evaly HRM service
+# Django class 4
