@@ -20,7 +20,7 @@ LOGGING = {
     },
     'handlers': {
         'console': {
-            'level': 'INFO',
+            'level':  os.environ.get('DJANGO_LOG_LEVEL', 'DEBUG'),
             'class': 'logging.StreamHandler',
             'formatter': 'verbose'
         },

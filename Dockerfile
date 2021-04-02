@@ -1,7 +1,6 @@
 FROM python:3.6-slim
 
 ENV PYTHONUNBUFFERED 1
-ENV C_FORCE_ROOT 1
 
 ENV TZ=Asia/Dhaka
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
@@ -14,10 +13,6 @@ RUN pip3 install -U pip
 ADD requirements.txt /app
 RUN pip3 install -r requirements.txt && \
     apt-get --purge autoremove build-essential -y
-
-RUN groupadd -g 999 celery && \
-    useradd -r -u 999 -g celery celery
-USER celery
 
 COPY src/ /app/src/
 

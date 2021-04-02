@@ -20,7 +20,7 @@ THIRD_PARTY_APPS = [
 ]
 
 LOCAL_APPS = [
-    'user'
+    'user',
 ]
 
 INSTALLED_APPS = ON_TOP_APPS + DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -40,6 +40,19 @@ DEFAULT_MIDDLEWARE = [
 
 ON_TOP_MIDDLEWARE = ['corsheaders.middleware.CorsMiddleware', ]
 
+THIRD_PARTY_MIDDLEWARE = ['simple_history.middleware.HistoryRequestMiddleware']
+
+LOCAL_MIDDLEWARE = [
+    'base.middleware.AuthMiddleware',
+    'base.middleware.RequestResponseLogMiddleware',
+]
+
+MIDDLEWARE = ON_TOP_MIDDLEWARE + DEFAULT_MIDDLEWARE + THIRD_PARTY_MIDDLEWARE + LOCAL_MIDDLEWARE
+
+ROOT_URLCONF = 'ecom_project.urls'
+
+WSGI_APPLICATION = 'ecom_project.wsgi.application'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
@@ -55,16 +68,3 @@ TEMPLATES = [
         },
     },
 ]
-
-THIRD_PARTY_MIDDLEWARE = ['simple_history.middleware.HistoryRequestMiddleware']
-
-LOCAL_MIDDLEWARE = [
-    'base.middleware.AuthMiddleware',
-    'base.middleware.RequestResponseLogMiddleware',
-]
-
-MIDDLEWARE = ON_TOP_MIDDLEWARE + DEFAULT_MIDDLEWARE + THIRD_PARTY_MIDDLEWARE + LOCAL_MIDDLEWARE
-
-ROOT_URLCONF = 'ecom_project.urls'
-
-WSGI_APPLICATION = 'ecom_project.wsgi.application'

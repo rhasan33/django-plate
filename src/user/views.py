@@ -2,7 +2,8 @@ from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import AllowAny
 from rest_framework.request import Request
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, permissions
+from rest_framework.generics import ListAPIView
 
 from user.models import User
 from user.serializers import UserSerializer
@@ -29,3 +30,10 @@ def registration(request: Request) -> Response:
         user.last_name = request.data.get('last_name', False)
         user.save()
         return Response(data={'data': UserSerializer(user).data}, status=status.HTTP_201_CREATED)
+
+
+class GetUsers(ListAPIView):
+    serializer_class = UserSerializer
+    permission_classes = (permissions.AllowAny,)
+    queryset = User.objects.filter()
+

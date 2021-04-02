@@ -8,7 +8,7 @@ REST_FRAMEWORK = {
         'ecom_project.apis.renderers.DefaultRenderer',
     ),
     'DEFAULT_PAGINATION_CLASS': 'base.helpers.CustomPagination',
-    'PAGE_SIZE': 12,
+    'PAGE_SIZE': 5,
     'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler'
 }
 
