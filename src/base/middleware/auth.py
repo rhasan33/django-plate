@@ -65,8 +65,6 @@ class AuthMiddleware:
                         'success': False
                     }, status=401)
                 setattr(request, 'user', user_obj)
-                setattr(request, 'groups', payload['groups'])
-                setattr(request, 'is_superuser', payload['is_superuser'])
             except Exception as err:
                 return JsonResponse(data={
                     'message': f'auth exception {str(err)}',
