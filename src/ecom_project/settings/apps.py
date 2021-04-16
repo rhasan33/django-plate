@@ -7,6 +7,7 @@ DJANGO_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.gis',
 ]
 
 ON_TOP_APPS = [
@@ -21,6 +22,7 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     'user',
+    'shop',
 ]
 
 INSTALLED_APPS = ON_TOP_APPS + DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS

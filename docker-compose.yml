@@ -2,7 +2,7 @@ version: "3"
 
 services:
   db:
-    image: postgres:11.4-alpine
+    image: postgis/postgis:11-2.5-alpine
     environment:
       - POSTGRES_USER=ecom_project
       - POSTGRES_PASSWORD=12345

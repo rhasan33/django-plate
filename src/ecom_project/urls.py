@@ -21,5 +21,6 @@ from ecom_project.views import health_check
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', health_check),
-    path('api/v1/users', include('user.urls', namespace='user-api'))
+    path('api/v1/users', include('user.urls', namespace='user-api')),
+    path('api/v1/shops', include('shop.urls', namespace='shop-api')),
 ]

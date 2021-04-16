@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.postgres.fields import JSONField
 
 
 class BaseModel(models.Model):
@@ -11,8 +10,8 @@ class BaseModel(models.Model):
 
     created_at = models.DateTimeField(auto_now_add=True, editable=False)
     updated_at = models.DateTimeField(auto_now=True, editable=False)
-    created_by = JSONField(default=dict)
-    updated_by = JSONField(default=dict)
+    created_by = models.JSONField(default=dict)
+    updated_by = models.JSONField(default=dict)
 
     class Meta:
         abstract = True
