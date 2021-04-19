@@ -4,16 +4,16 @@ services:
   db:
     image: postgis/postgis:11-2.5-alpine
     environment:
-      - POSTGRES_USER=ecom_project
+      - POSTGRES_USER=hotel_booking
       - POSTGRES_PASSWORD=12345
-      - POSTGRES_DB=ecom_project
+      - POSTGRES_DB=hotel_booking
     ports:
       - 5434:5432
 
   redis:
     image: redis:5-alpine
     ports:
-      - 6377:6379
+      - 6378:6379
 
   worker:
     build: .
@@ -23,7 +23,7 @@ services:
       - rabbitmq
     volumes:
       - ./src:/app/src
-    command: bash -c "cd src/ && celery -A ecom_project.settings.celery worker -l info"
+    command: bash -c "cd src/ && celery -A hotel_booking.settings.celery worker -l info"
     env_file:
       - .env
 
@@ -33,14 +33,14 @@ services:
       - CELERY_BROKER_URL=amqp://myuser:mypass@rabbitmq:5672/myvhost
       - FLOWER_PORT=8888
     ports:
-      - 8888:8888
+      - 5555:8888
     depends_on:
       - worker
 
   rabbitmq:
     image: rabbitmq:3-management-alpine
     ports:
-      - "8031:15672"
+      - "5567:15672"
       - "5672:5672"
       - "5671:5671"
     environment:
@@ -60,6 +60,6 @@ services:
       - ./src:/app/src
     command: bash -c "cd src && ./manage.py runserver 0.0.0.0:8000"
     ports:
-      - 8010:8000
+      - 8080:8000
     env_file:
       - .env

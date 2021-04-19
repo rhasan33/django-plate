@@ -1,4 +1,4 @@
-"""ecom_project URL Configuration
+"""hotel_booking URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
@@ -16,11 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-from ecom_project.views import health_check
+from hotel_booking.views import health_check
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', health_check),
-    path('api/v1/users', include('user.urls', namespace='user-api')),
-    path('api/v1/shops', include('shop.urls', namespace='shop-api')),
 ]

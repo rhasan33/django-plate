@@ -1,4 +1,4 @@
-from ecom_project.settings import DEBUG
+from hotel_booking.settings import DEBUG
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -22,7 +22,6 @@ THIRD_PARTY_APPS = [
 
 LOCAL_APPS = [
     'user',
-    'shop',
 ]
 
 INSTALLED_APPS = ON_TOP_APPS + DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -51,9 +50,9 @@ LOCAL_MIDDLEWARE = [
 
 MIDDLEWARE = ON_TOP_MIDDLEWARE + DEFAULT_MIDDLEWARE + THIRD_PARTY_MIDDLEWARE + LOCAL_MIDDLEWARE
 
-ROOT_URLCONF = 'ecom_project.urls'
+ROOT_URLCONF = 'hotel_booking.urls'
 
-WSGI_APPLICATION = 'ecom_project.wsgi.application'
+WSGI_APPLICATION = 'hotel_booking.wsgi.application'
 
 TEMPLATES = [
     {

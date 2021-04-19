@@ -14,20 +14,18 @@ class User(AbstractBaseUser, PermissionsMixin):
         ARCHIVED = 'archived', _('archived')
         DELETED = 'deleted', _('deleted')
 
-    verified = models.BooleanField(default=False, )
-    profile_pic_url = models.TextField(null=True, )
+    verified = models.BooleanField(default=False)
+    profile_pic_url = models.TextField(null=True)
     address = models.TextField(null=True)
     gender = models.CharField(max_length=10, choices=Gender.choices, default=Gender.MALE)
-    user_status = models.CharField(max_length=10, choices=Status.choices, default=Status.ACTIVE)
     username = models.CharField(max_length=40, unique=True)
     email = models.EmailField(_('email address'), null=True, blank=True, )
     date_joined = models.DateTimeField(auto_now_add=True)
-    first_name = models.CharField(max_length=255, null=True, )
-    last_name = models.CharField(max_length=255, null=True, )
-    is_active = models.BooleanField(default=True, )
-    is_staff = models.BooleanField(default=False, )
-    is_superuser = models.BooleanField(default=False, )
-    last_login = None
+    first_name = models.CharField(max_length=255, null=True)
+    last_name = models.CharField(max_length=255, null=True)
+    is_active = models.BooleanField(default=True)
+    is_staff = models.BooleanField(default=False)
+    is_superuser = models.BooleanField(default=False)
 
     USERNAME_FIELD = 'username'
     REQUIRED_FIELDS = ['verified', 'gender', 'user_status', 'is_superuser', 'is_staff', 'is_active', ]

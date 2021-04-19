@@ -1,1 +1,1 @@
-# Django class 4
+# Hotel Booking Application

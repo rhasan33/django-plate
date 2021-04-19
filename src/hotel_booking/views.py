@@ -9,7 +9,7 @@ from rest_framework import status
 @permission_classes([AllowAny])
 def health_check(request: Request) -> Response:
     data = {
-        'message': 'django class 4 api',
+        'message': 'hotel booking application',
         'method': request.method
     }
     return Response(data={'message': data}, status=status.HTTP_200_OK)

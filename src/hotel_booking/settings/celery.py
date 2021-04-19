@@ -2,9 +2,9 @@ import os
 from celery import Celery
 from django.conf import settings
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'ecom_project.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hotel_booking.settings')
 
-celery_app = Celery('ecom_project')
+celery_app = Celery('hotel_booking')
 
 celery_app.config_from_object('django.conf:settings', namespace='CELERY')
 
