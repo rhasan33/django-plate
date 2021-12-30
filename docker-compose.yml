@@ -4,9 +4,9 @@ services:
   db:
     image: postgis/postgis:11-2.5-alpine
     environment:
-      - POSTGRES_USER=hotel_booking
+      - POSTGRES_USER=ecom
       - POSTGRES_PASSWORD=12345
-      - POSTGRES_DB=hotel_booking
+      - POSTGRES_DB=ecom
     ports:
       - 5434:5432
 
@@ -23,7 +23,7 @@ services:
       - rabbitmq
     volumes:
       - ./src:/app/src
-    command: bash -c "cd src/ && celery -A hotel_booking.settings.celery worker -l info"
+    command: bash -c "cd src/ && celery -A ecom.settings.celery worker -l info"
     env_file:
       - .env
 

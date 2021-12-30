@@ -1,4 +1,4 @@
-from hotel_booking.settings import DEBUG
+from ecom.settings import DEBUG
 
 DJANGO_APPS = [
     'django.contrib.admin',
@@ -50,9 +50,9 @@ LOCAL_MIDDLEWARE = [
 
 MIDDLEWARE = ON_TOP_MIDDLEWARE + DEFAULT_MIDDLEWARE + THIRD_PARTY_MIDDLEWARE + LOCAL_MIDDLEWARE
 
-ROOT_URLCONF = 'hotel_booking.urls'
+ROOT_URLCONF = 'ecom.urls'
 
-WSGI_APPLICATION = 'hotel_booking.wsgi.application'
+WSGI_APPLICATION = 'ecom.wsgi.application'
 
 TEMPLATES = [
     {

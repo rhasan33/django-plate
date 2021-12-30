@@ -1,14 +1,14 @@
-from hotel_booking.settings import DEBUG, REDIS_HOST, RABBITMQ_URL
+from ecom.settings import DEBUG, REDIS_HOST, RABBITMQ_URL
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': (
         'rest_framework.permissions.DjangoModelPermissions',
     ),
     'DEFAULT_RENDERER_CLASSES': (
-        'hotel_booking.apis.renderers.DefaultRenderer',
+        'ecom.apis.renderers.DefaultRenderer',
     ),
     'DEFAULT_PAGINATION_CLASS': 'base.helpers.CustomPagination',
-    'PAGE_SIZE': 5,
+    'PAGE_SIZE': 10,
     'EXCEPTION_HANDLER': 'rest_framework.views.exception_handler'
 }
 
@@ -53,7 +53,7 @@ CACHES = {
             "MASTER_CACHE": f"redis://{REDIS_HOST}:6379",
             "DB": 4,
         },
-        "KEY_PREFIX": "hotel_booking",
+        "KEY_PREFIX": "ecom",
     }
 }
 
@@ -68,5 +68,5 @@ CELERY_TASK_SERIALIZER = 'json'
 CELERY_RESULT_SERIALIZER = 'json'
 CELERY_TIMEZONE = 'UTC'
 CELERY_TASK_RESULT_EXPIRES = 3600
-CELERY_TASK_DEFAULT_QUEUE = 'hotel_booking.celery'
+CELERY_TASK_DEFAULT_QUEUE = 'ecom.celery'
 
